@@ -1,0 +1,15 @@
+header.site-header{max-width:none;width:100%;margin:0;padding:24px 32px 20px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #354155;box-sizing:border-box}
+.site-header h1{font:600 28px/1.2 Georgia,serif;margin:0;color:#edbf6a}.site-header p{margin:6px 0 0;color:#b3bece;font-size:14px}
+.site-header .catalogue-nav{margin-left:auto;display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px;padding:0;border:0;font:14px/1.5 system-ui,sans-serif}
+.catalogue-nav a{padding:9px 14px;border:1px solid #354155;border-radius:6px;text-decoration:none;color:#b3bece;white-space:nowrap}.catalogue-nav a:hover,.catalogue-nav a[aria-current=page]{background:#342e23;color:#edbf6a;border-color:#887149}
+.editor-tooltip{background:#111316;border:1px solid #756b55;padding:18px;color:#f0f0f0;font:14px/1.55 'Segoe UI',system-ui,sans-serif;overflow-wrap:anywhere}
+.editor-title{display:flex;gap:12px;align-items:center;margin-bottom:12px}.editor-title h2,.detail .editor-title h2{font:700 19px/1.35 'Segoe UI',system-ui,sans-serif;color:#f0f0f0;margin:0}.editor-title img,.editor-title .item-icon.large{width:48px;height:48px;flex:0 0 48px;object-fit:contain}.editor-description{color:#82e687;white-space:pre-wrap;margin:8px 0}.editor-type{margin:10px 0}.editor-line{padding:2px 0;color:#f0f0f0}.editor-line.requirement{color:#f5d871;font-size:inherit}.editor-line.bonus,.editor-set{color:#9ab1cd}.editor-line span{font-variant-numeric:tabular-nums}.editor-note{font-size:12px;color:#9ab1cd;margin-bottom:0}.editor-set{margin-bottom:4px}.level-sort{padding:0;background:transparent;border:0;color:inherit;font:inherit;white-space:nowrap}.level-sort:hover{color:#edbf6a}
+.filters{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.filters>[hidden]{display:none!important}.map-note{color:#b3bece;font-size:12px}.set-hint{color:#b3bece;font-size:13px}.set-hint[hidden]{display:none}
+@media(max-width:700px){header.site-header{padding:20px 16px;flex-wrap:wrap;align-items:start}.site-header .catalogue-nav{width:100%;margin-left:auto;gap:6px}.catalogue-nav a{padding:7px 9px}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-tooltip{padding:14px}.editor-title h2,.detail .editor-title h2{font-size:18px}}
+
+/* One manual per row, recipes remain in the detail panel. */
+.workspace.manual-view{grid-template-columns:minmax(280px,.8fr) minmax(440px,1.4fr)}
+.manual-view table{min-width:0}.manual-view td:first-child{width:100%}.manual-view .detail{position:sticky;max-height:90vh;top:16px}
+@media(max-width:900px){.workspace.manual-view{grid-template-columns:1fr}.manual-view .detail{position:static;max-height:none}.manual-view table{min-width:0}}
+
+.item-upgrades{margin:22px 0}.upgrade-material-entry{padding:10px 0;border-bottom:1px solid #30343a}.upgrade-material-entry details{margin:8px 0 0 40px;font-size:13px}.upgrade-material-entry summary{color:#aeb4be;cursor:pointer}
