@@ -17,7 +17,7 @@
 .filters{grid-template-columns:minmax(220px,2fr) repeat(5,minmax(110px,1fr)) auto}
 .game-tooltip{background:linear-gradient(#10161d,#070b10);border:1px solid #887149;box-shadow:inset 0 0 0 2px #24201a;padding:20px}.game-tooltip .item-title{border-bottom:1px solid #514631;padding-bottom:14px}.game-tooltip h2{color:#edbf6a;font-size:24px}.game-tooltip .item-type{color:#dfd9c8;font-size:14px}.requirement{color:#9bc5ff;font-size:14px}.game-stat{display:flex;justify-content:space-between;gap:14px;color:#8ee49c;padding:4px 0;font-size:15px}.game-stat strong{font-weight:500;white-space:nowrap}.game-stat.bonus{color:#9bc5ff}.game-description{white-space:pre-wrap;color:#e2dac6;padding-top:16px;border-top:1px solid #514631}.game-tooltip .footnote{font-size:12px}.detail{border-top:1px solid var(--line);padding:18px}.raw-details{margin-bottom:24px}
 @media(max-width:1200px){.filters{grid-template-columns:repeat(3,minmax(0,1fr))}.filters .search{grid-column:1/-1}}@media(max-width:700px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.game-tooltip{padding:14px}.game-stat{font-size:13px}.game-tooltip h2{font-size:21px}.catalogue-nav{gap:6px}.catalogue-nav a{padding:7px 9px}}
-</style><link rel="stylesheet" href="common.css"><script src="common.js"></script><link rel="stylesheet" href="dark.css"></head>
+</style><link rel="stylesheet" href="common.css"><script src="model-icons.js"></script><script src="common.js"></script><link rel="stylesheet" href="dark.css"></head>
 <body>
 <header class="site-header"><div><h1>Martial Heroes</h1><p>Item catalogue / <span id="total">Loading items…</span></p></div><nav class="catalogue-nav" aria-label="Game catalogues"><a href="index.html" aria-current="page">Items</a><a href="index.html#view=manuals">Manuals</a><a href="upgrades.html">Upgrades</a><a href="exp.html">EXP per level</a></nav></header>
 <main>
@@ -127,13 +127,15 @@ let activeView='items',itemById=new Map(),crafting,manualEntries=[],manualFilter
 const sourceNames={npc:'NPC listing',container:'Box / event pool',crafting:'Crafting entry',cash_shop:'Cash shop',unknown:'Source not found'};
 function itemName(id){return itemById.get(Number(id))?.[1]||(id?'Unknown item '+id:'Unspecified outcome');}
 function iconHTML(id,size='small'){
+ const rendered=window.MH_MODEL_ICONS?.[String(id)];
+ if(rendered)return `<img class="item-icon ${size}" src="${rendered}" width="${size==='large'?64:32}" height="${size==='large'?64:32}" loading="lazy" alt="" title="Rendered item model: ${esc(itemName(id))}">`;
  const r=itemById.get(Number(id)),texture=r?.[17],encoded=data.icons?.images?.[texture];
  if(!encoded)return `<span class="item-icon missing-icon ${size}" role="img" aria-label="Image unavailable" title="No matching texture found">?</span>`;
  if(!iconUrls.has(texture)){
   const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
   iconUrls.set(texture,URL.createObjectURL(new Blob([bytes],{type:'image/png'})));
  }
- return `<img class="item-icon ${size}" src="${iconUrls.get(texture)}" width="${size==='large'?64:32}" height="${size==='large'?64:32}" loading="lazy" alt="" title="Client texture preview: ${esc(itemName(id))}">`;
+ return `<img class="item-icon ${size}" src="${iconUrls.get(texture)}" width="${size==='large'?64:32}" height="${size==='large'?64:32}" loading="lazy" alt="" title="Texture fallback (model unavailable): ${esc(itemName(id))}">`;
 }
 function itemLink(id,quantity=null){
  const suffix=quantity===null?'':quantity>0?' ×'+fmt(quantity):' · amount unresolved';
