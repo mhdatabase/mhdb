@@ -1,23 +1,52 @@
 # Martial Heroes Database
 
-Browse item stats, crafting manuals, upgrade recipes, and EXP requirements.
+A community-made Martial Heroes reference with searchable item, crafting and upgrade catalogues, an EXP table, and a **Bead Upgrade Simulator**.
 
-**Database updated to the October 6, 2026 patch (10/6/2026).**
+**Game data patch:** October 6, 2026 (10/6/2026)  
+**Catalogue release:** v6.7
 
-## Browse the Database
+🌐 **Official Martial Heroes website:** [martialheroes.net](https://martialheroes.net/)
 
-[Open the Martial Heroes Database](https://mhdatabase.github.io/mhdb/)
+## What's included
 
-- **Item Catalogue** — Item descriptions, stats, set families, and applicable upgrade materials.
-- **Manual Catalogue** — Crafting manuals, required materials, and resulting items.
-- **Upgrade Catalogue** — Upgrade materials, recipes, and item stat changes.
-- **EXP per Level** — Experience requirements by level.
+| Section | Features |
+| --- | --- |
+| **Items** | Search items, view icons, stats and descriptions, browse categories and armor sets, and check recorded sources and upgrade materials. |
+| **Manuals & Crafting** | Browse manuals and view their products and required materials. |
+| **Upgrades** | Compare before-and-after item stats, browse upgrade materials, and view approximate success rates derived from the client data. |
+| **EXP per level** | Look up experience requirements by level. |
+| **Bead Upgrade Simulator** | Estimate the materials needed to upgrade level-144+ beads using recorded recipes and success rates. |
 
-## Official Website
+## Bead Upgrade Simulator
 
-[Martial Heroes — Official Website](https://martialheroes.net/)
+Open **Bead Simulator** beside **EXP per level** in the navigation bar.
 
-## About
+1. Select a bead, then choose its starting and target upgrade levels.
+2. Choose standard upgrade materials or Scarlet Upgrade where available. Material choices can be adjusted for each stage.
+3. Optionally apply a **10%, 15%, 20%, or 25%** success-chance boost.
+4. Run **1,000, 10,000, or 50,000** simulations.
 
-This is an unofficial, community-made reference based on game client data.
-Server-side values and availability may differ from what is stored in the client.
+Results show the average materials used, luckiest and unluckiest simulated runs, a suggested material stock, and a breakdown by material.
+
+Boosts are relative: **0.5% with a 20% boost becomes 0.6%**. The simulator assumes one material per attempt and no level loss on failure. Missing recipes are not filled in with guessed rates. Suggested stock is an estimate, not a guarantee, and the worst simulated run is not an absolute maximum.
+
+## Repository files
+
+Keep these files together in the repository's publishing folder:
+
+| File | Page |
+| --- | --- |
+| `index.html` | Items and Manuals & Crafting |
+| `upgrades.html` | Upgrade Catalogue |
+| `exp.html` | EXP per level |
+| `simulator.html` | Bead Upgrade Simulator |
+
+The pages contain their own data, icons, logo and background. No separate image folder, backend or build step is required. They can also be opened locally in a modern browser.
+
+To update the site, extract the release ZIP and replace **all four HTML files**. Upload the extracted files—not the ZIP. The `maintenance` folder is optional and is not needed for the website. Refresh with **Ctrl+F5** if the browser continues to show an older version.
+
+## About the data
+
+This is an unofficial community reference. Client files can contain unused items and recipes; listings do not guarantee availability in the live game. Actual server rates, event bonuses and other server-side rules may differ from the displayed calculations.
+
+Martial Heroes artwork and game assets belong to their respective owners.
