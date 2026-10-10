@@ -30,21 +30,6 @@ Results show the average materials used, luckiest and unluckiest simulated runs,
 
 Boosts are relative: **0.5% with a 20% boost becomes 0.6%**. The simulator assumes one material per attempt and no level loss on failure. Missing recipes are not filled in with guessed rates. Suggested stock is an estimate, not a guarantee, and the worst simulated run is not an absolute maximum.
 
-## Repository files
-
-Keep these files together in the repository's publishing folder:
-
-| File | Page |
-| --- | --- |
-| `index.html` | Items and Manuals & Crafting |
-| `upgrades.html` | Upgrade Catalogue |
-| `exp.html` | EXP per level |
-| `simulator.html` | Bead Upgrade Simulator |
-
-The pages contain their own data, icons, logo and background. No separate image folder, backend or build step is required. They can also be opened locally in a modern browser.
-
-To update the site, extract the release ZIP and replace **all four HTML files**. Upload the extracted files—not the ZIP. The `maintenance` folder is optional and is not needed for the website. Refresh with **Ctrl+F5** if the browser continues to show an older version.
-
 ## About the data
 
 This is an unofficial community reference. Client files can contain unused items and recipes; listings do not guarantee availability in the live game. Actual server rates, event bonuses and other server-side rules may differ from the displayed calculations.
