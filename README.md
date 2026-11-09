@@ -2,8 +2,8 @@
 
 A community-made Martial Heroes reference with searchable item, crafting and upgrade catalogues, an EXP table, and a **Bead Upgrade Simulator**.
 
-**Game data patch:** October 6, 2026 (10/6/2026)  
-**Catalogue release:** v6.7
+**Game data patch:** Nov 3, 2026
+**Catalogue release:** v6.13
 
 🌐 **Official Martial Heroes website:** [martialheroes.net](https://martialheroes.net/)
 
